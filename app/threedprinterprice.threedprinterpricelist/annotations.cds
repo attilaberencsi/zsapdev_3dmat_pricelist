@@ -1,0 +1,1 @@
+using priceService as service from '../../srv/service';
