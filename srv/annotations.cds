@@ -2,7 +2,7 @@ using {priceService as service} from './service';
 
 annotate service.Price with {
     @UI.lineItem: [{ position: 10 }]
-    MmterialID;
+    MaterialID;
 
     @UI.lineItem: [{ position: 20 }]
     materialName;

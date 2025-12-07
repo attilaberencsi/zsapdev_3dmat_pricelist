@@ -12,7 +12,7 @@ using {
 
 @cds.draft.enabled
 entity Price : cuid, managed, temporal {
-    MmterialID   : String(20);
+    MaterialID   : String(20);
     materialName : String(40);
 
     @Semantics.amount.currencyCode: 'Currency'
