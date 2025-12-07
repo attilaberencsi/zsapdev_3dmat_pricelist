@@ -15,6 +15,27 @@ class PriceHandler {
             newPrice.currency = 'EUR';
         }
     }
+
+    async onValidate(request) {
+
+        const { ID } = request.data;
+        if (!ID) {
+            return request.error(400, 'ID is required for validation.');
+        }
+
+        const { Price } = cds.entities;
+        const priceEntity = await SELECT.one.from(Price).where({ ID });
+
+        if (!priceEntity) {
+            return request.error(404, 'Price entity not found.');
+        }
+
+        if (priceEntity.price === 0) {
+            return request.error(400, 'Price cannot be zero.');
+        }
+
+        return true;
+    }
 }
 
 export default PriceHandler;

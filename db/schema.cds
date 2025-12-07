@@ -1,7 +1,6 @@
 namespace com.sapdev.threedprinter.price;
 
-using
-{
+using {
     Country,
     Currency,
     Language,
@@ -9,20 +8,20 @@ using
     cuid,
     managed,
     temporal
-}
-from '@sap/cds/common';
+} from '@sap/cds/common';
 
-entity Price : cuid, managed, temporal
-{
-    MmterialID : String(20);
+@cds.draft.enabled
+entity Price : cuid, managed, temporal {
+    MmterialID   : String(20);
     materialName : String(40);
+
     @Semantics.amount.currencyCode: 'Currency'
-    price : Decimal(15,2);
-    currency : Currency;
-    validFrom : Date;
-    validTo : Date;
-    createdBy : User;
-    createdAt : Timestamp;
-    modifiedBy : User;
-    modifiedAt : Timestamp;
+    price        : Decimal(15, 2);
+    currency     : Currency;
+    validFrom    : Date;
+    validTo      : Date;
+    createdBy    : User;
+    createdAt    : Timestamp;
+    modifiedBy   : User;
+    modifiedAt   : Timestamp;
 }
